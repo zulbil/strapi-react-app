@@ -1,3 +1,4 @@
+import JournalistView from "../components/JournalistView"
 import HeroHomePage from "../components/HeroHomePage"
 import TestimonySectionHomePage from "../components/TestimonySectionHomePage"
 
@@ -6,6 +7,7 @@ function HomePage () {
         <main>
             <HeroHomePage />
             <TestimonySectionHomePage />
+            <JournalistView />
         </main>
     )
 }
