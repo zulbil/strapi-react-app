@@ -1,23 +1,5 @@
 .search-input {
     input {
-        padding: 20px;
-        border-radius: 50px;
-        position: relative;
-
-        &::before {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 30px;
-            height: 30px;
-            display: inline-block;
-            content: "";
-            z-index: 2;
-            background-color: #000;
-        }
-    }
-    button {
-        width: 150px;
-        border-radius: 20px;
+        padding: 10px;
     }
 }
