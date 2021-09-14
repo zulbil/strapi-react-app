@@ -1,8 +1,12 @@
+import HeroHomePage from "../components/HeroHomePage"
+import TestimonySectionHomePage from "../components/TestimonySectionHomePage"
+
 function HomePage () {
     return (
-        <div>
-            <h1>Home Page</h1>
-        </div>
+        <main>
+            <HeroHomePage />
+            <TestimonySectionHomePage />
+        </main>
     )
 }
 
