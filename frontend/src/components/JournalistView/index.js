@@ -7,7 +7,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import SearchInput from '../SearchInput';
 import JournalistList from '../JournalistList';
 
-const Content = () => {
+const JournalistView = () => {
 
     const [isLoading, setIsLoading]                 =       useState(false)
     const [journalists, setJournalists]             =       useState([])
@@ -72,33 +72,39 @@ const Content = () => {
 
 
     return (
-        <div>
-            <h2>PRESS HUNTER</h2>
-            <SearchInput onSearch={performSearch} />
+        <section className="journalist-view-section">
+            <div className="container">
+                <div className="row justify-content-center">
 
-            {
-                error &&
-                <div className="alert alert-danger">
-                    {error.response.data.message ? error.response.data.message : 'Une erreur inattendue s\'est produite'}
-                </div>
-            }
+                    <div className="col-6 col-auto">
+                    <h2 className="text-center mb-4">The most powerful journalist database on the internet</h2>
+                    <p className="mb-5">You can try using Hunt Press for free below. Premium data is redacted until you subscribe.</p>    
+                    <SearchInput onSearch={performSearch} />
+                    {
+                        error &&
+                        <div className="alert alert-danger">
+                            {error.response.data.message ? error.response.data.message : 'Une erreur inattendue s\'est produite'}
+                        </div>
+                    }
 
-            {
-                ( isLoading && !error ) && 
-                <SkeletonTheme>
-                    <div>
-                        <Skeleton count={4} duration={10} height={330} delay={10}className='mt-4' />
+                    {
+                        ( isLoading && !error ) && 
+                        <SkeletonTheme>
+                            <div>
+                                <Skeleton count={4} duration={10} height={330} delay={10}className='mt-4' />
+                            </div>
+                        </SkeletonTheme>
+                    }
+
+                    {
+                        (!isLoading && !error ) &&
+                        <JournalistList list={journalists} />
+                    }
                     </div>
-                </SkeletonTheme>
-            }
-
-            {
-                (!isLoading && !error ) &&
-                <JournalistList list={journalists} />
-            }
-
-        </div>
+                </div>
+            </div>
+        </section>
     )
 }
 
-export default Content
+export default JournalistView
