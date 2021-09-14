@@ -1,0 +1,83 @@
+$pink-color: #dab2d9;
+$light-pink-color: #eae3f2;
+$brown-color: #eac49f;
+$purple-color: #373852;
+$light-purple-color: #87728c;
+$grey-base-color:#9c9eac;
+$more-purple-color: #a9b2dc;
+$blue-base-color: #aeceee;
+
+.journalist-card {
+    padding: 30px;
+    border-radius: 20px;
+    border:1px solid transparent !important;
+    cursor: pointer;
+    margin-top: unset;
+    transition: margin-top ease 0.3s;
+
+
+    &:hover{
+        margin-top: 10px;
+    }
+    
+    .card-head {
+        display: flex;
+        align-items: center;
+    }
+    .avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-right: 30px;
+    }
+    .journalist-identity {
+        text-align: left;
+        i { color: #0dcaf0; }
+    }
+
+    .card-body {
+        text-align: left;
+        padding: 20px 0;
+    }
+    .topic-tags-list {
+        margin-top: 20px;
+    }
+    .topic-tag {
+        display: inline-block;
+        background-color: $light-pink-color;
+        width: auto;
+        padding: 4px 15px;
+        margin-left: 15px;
+        border: 1px solid $light-pink-color;
+        color: #90008c;
+        border-radius: 10px;
+        font-weight: 400;
+        font-size: 0.9em;
+
+        &:first-child {
+            margin-left: 0 !important;
+        }
+    }
+
+    .btn-base {
+        .bi-lock-fill { 
+            margin-left: 10px;
+            color: red;
+        }
+        .bi-plus-circle {
+            margin-right: 10px;
+        }
+    }
+
+    .btn-base-ghost {
+        margin-left: 40px;
+        
+        .bi-journal-plus {
+            margin-right: 10px;
+        }
+    }
+
+    .btn i {
+        display: inline-block;
+    }
+}

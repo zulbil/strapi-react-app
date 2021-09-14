@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "agencies",
+  "info": {
+    "name": "Agency",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "journalists": {
+      "via": "agency",
+      "collection": "journalist"
+    }
+  }
+}

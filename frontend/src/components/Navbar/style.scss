@@ -1,0 +1,62 @@
+$pink-color: #dab2d9;
+$light-pink-color: #eae3f2;
+$brown-color: #eac49f;
+$purple-color: #373852;
+$light-purple-color: #87728c;
+$grey-base-color :#9c9eac;
+$more-purple-color: #a9b2dc;
+$blue-base-color: #aeceee;
+
+.sidebar {
+    background: #ddd6f373;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #faaca873, #ddd6f373);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #faaca873, #ddd6f373); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding-top: 50px;
+    padding-left: 60px;
+    min-height: 100vh;
+
+    ul {
+        li {
+            padding: 15px 0;
+            &:hover {
+                cursor: pointer;
+                a,i { color: $purple-color;}
+            }
+        }
+
+        i {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            border-radius: 50%;
+            background: white;
+            border: 1px solid white;
+            text-align: center;
+            margin-right: 30px;
+            padding: 10px;
+            font-size: 20px;
+            color: $grey-base-color;
+            font-weight: bold;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.08);
+            transition: color ease 0.3s;
+        }
+
+        a {
+            text-decoration: none;
+            color: $grey-base-color;
+            font-weight: 700;
+            transition: color ease 0.3s;
+        }
+    }
+}
+
+.custom-navbar {
+    .nav-link {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+}
+.logo {
+    span { font-size: 28px; }
+    .icon-logo { font-size: 30px; }
+}

@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "journalists",
+  "info": {
+    "name": "Journalist",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "lastname": {
+      "type": "string"
+    },
+    "firstname": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "avatar": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "email": {
+      "type": "email"
+    },
+    "address": {
+      "type": "string"
+    },
+    "roles": {
+      "type": "enumeration",
+      "enum": [
+        "Contributor",
+        "Editor",
+        "Journalist",
+        "Reporter"
+      ]
+    },
+    "agency": {
+      "model": "agency",
+      "via": "journalists"
+    },
+    "topics": {
+      "collection": "topic"
+    }
+  }
+}

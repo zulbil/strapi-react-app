@@ -1,0 +1,64 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');
+
+$pink-color: #dab2d9;
+$light-pink-color: #eae3f2;
+$brown-color: #eac49f;
+$purple-color: #373852;
+$light-purple-color: #87728c;
+$grey-base-color :#9c9eac;
+$more-purple-color: #a9b2dc;
+$blue-base-color: #aeceee;
+
+.App {
+  
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 17px;
+}
+
+.btn-base {
+  background: #0f0c29;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border: 1px solid $purple-color;
+  color: white;
+  padding: 15px 30px;
+  font-weight: 700;
+  border-radius: 30px;
+  transition: padding ease 0.3s;
+
+  &:hover,
+  &:focus {
+    color: white;
+    padding: 15px 40px;
+
+  }
+}
+
+.btn-base-ghost {
+  background: white;
+  border: 1px solid $purple-color;
+  color: $purple-color;
+  padding: 15px 30px;
+  font-weight: 700;
+  border-radius: 30px;
+  transition: all ease 0.3s;
+
+  &:hover,
+  &:focus {
+    color: white;
+    padding: 15px 40px;
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+}
+
