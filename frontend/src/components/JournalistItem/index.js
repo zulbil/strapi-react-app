@@ -9,19 +9,19 @@ const JournalistItem = ({ item }) => {
                 <div className="card-head">
                     <Avatar path={item.avatar.length > 0 ? item.avatar[0].url: ''} firstname={item.firstname }/>
                     <div className="journalist-identity">
-                        <h4>{(item.firstname && item.lastname) && item.firstname+ ' ' + item.lastname}</h4>
+                        <h5>{(item.firstname && item.lastname) && item.firstname+ ' ' + item.lastname}</h5>
                         {item.roles && <span><i className="bi bi-check-circle-fill"></i> {item.roles} </span>}
                     </div>
                 </div>
                 <div className="card-body">
                     {item.description && <p className="journalist-bio">{item.description}</p>}
                     <div className="journalist-topics">
-                        {item.firstname && <h5 className="journalist-agency">{item.firstname+ "'s beats and topics"}</h5>}
+                        {item.firstname && <h6 className="journalist-agency">{item.firstname+ "'s beats and topics"}</h6>}
                         {
                             item.topics.length > 0 &&
                             <div className="topic-tags-list">
                                 {item.topics.map((el,index) => {
-                                    return <span className="topic-tag" key={index}>{el.name}</span>
+                                    return <span className="topic-tag" key={index}> <i className="bi bi-tags-fill"></i> {el.name}</span>
                                 })}
                             </div>
                         }

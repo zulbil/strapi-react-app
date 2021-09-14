@@ -9,7 +9,7 @@ $blue-base-color: #aeceee;
 
 .journalist-card {
     padding: 30px;
-    border-radius: 20px;
+    border-radius: 10px;
     border:1px solid transparent !important;
     cursor: pointer;
     margin-top: unset;
@@ -25,8 +25,8 @@ $blue-base-color: #aeceee;
         align-items: center;
     }
     .avatar {
-        width: 100px;
-        height: 100px;
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
         margin-right: 30px;
     }
@@ -34,22 +34,26 @@ $blue-base-color: #aeceee;
         text-align: left;
         i { color: #0dcaf0; }
     }
+    .journalist-agency {
+        font-weight: 900;
+    }
 
     .card-body {
         text-align: left;
         padding: 20px 0;
+        font-size: 0.95rem;
     }
     .topic-tags-list {
         margin-top: 20px;
     }
     .topic-tag {
         display: inline-block;
-        background-color: $light-pink-color;
+        background-color: transparent;
         width: auto;
         padding: 4px 15px;
         margin-left: 15px;
-        border: 1px solid $light-pink-color;
-        color: #90008c;
+        border: 1px solid #21252966;
+        color: #212529;
         border-radius: 10px;
         font-weight: 400;
         font-size: 0.9em;
@@ -59,23 +63,7 @@ $blue-base-color: #aeceee;
         }
     }
 
-    .btn-base {
-        .bi-lock-fill { 
-            margin-left: 10px;
-            color: red;
-        }
-        .bi-plus-circle {
-            margin-right: 10px;
-        }
-    }
-
-    .btn-base-ghost {
-        margin-left: 40px;
-        
-        .bi-journal-plus {
-            margin-right: 10px;
-        }
-    }
+    
 
     .btn i {
         display: inline-block;
