@@ -24,4 +24,19 @@ body {
   font-size: 16px;
 }
 
+.container-login-form {
+  height: 100vh;
+  background-color: $grey-base-color;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+
+  form {
+    background: white;
+    padding: 50px 30px;
+    border-radius: 20px;
+  }
+}
+
 
