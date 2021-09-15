@@ -1,8 +1,7 @@
 import './App.scss';
-import { Route, Switch } from 'react-router-dom';
+import {Switch } from 'react-router-dom';
 import JournalistsPage from './pages/JournalistsPage';
 import AgenciesPage from './pages/AgenciesPage';
-import Navbar from './components/Navbar';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import HomePage from './pages/HomePage';

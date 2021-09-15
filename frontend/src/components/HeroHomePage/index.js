@@ -12,7 +12,7 @@ function HeroHomePage() {
                         <p className="lead">Press Hunt saves you hundreds of hours by aggregating data on over 750k journalists, reporters, and podcasts in one place, complete with their coverage focuses and contact info</p>
                         <p>
                         <Link to="/journalists" className="btn btn-warning m-4 px-5 py-3">Discover journalists</Link>
-                        <a href="#" className="btn btn-outline-light m-4 px-5 py-3">Try for free</a>
+                        <a href="#js--journalist-view" className="btn btn-outline-light m-4 px-5 py-3">Try for free</a>
                         </p>
                     </div>
                 </div>

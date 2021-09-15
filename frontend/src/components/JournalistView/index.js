@@ -64,7 +64,7 @@ const JournalistView = () => {
 
 
     return (
-        <section className="journalist-view-section">
+        <section className="journalist-view-section" id="js--journalist-view">
             <div className="container">
                 <div className="row justify-content-center">
 
