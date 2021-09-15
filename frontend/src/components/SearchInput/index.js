@@ -7,6 +7,7 @@ const SearchInput = ({ onSearch }) => {
     const [searchKey, setSearchKey] = useState('')
 
     const handleSearchKeyWordChange = (e) => {
+        console.log(e)
         setSearchKey(e) 
         onSearch(searchKey)
     }

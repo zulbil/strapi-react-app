@@ -15,44 +15,36 @@ const JournalistView = () => {
     const [searchKeyWord, setSearchKeyWord]         =       useState('')
 
     const performSearch = (search) => {
-        if(!search) return; 
         setIsLoading(true)
         setSearchKeyWord(search);
+    }
 
-        const params = {
-            _where: {
-                _or: [
-                    { lastname_contains: search },
-                    { firstname_contains: search },
-                    { description_contains: search },
-                    { address_contains: search },
-                    { roles_contains: search },
-                    { 'agency.name_contains': search },
-                    { 'topics.name_contains' : search }
-                ]
-            }
-        };
-
-        const queryString = qs.stringify(params, {encode: false });
-
-        axios.get('http://localhost:1337/journalists?'+queryString)
-         .then((response) => {
-            setJournalists(response.data)
-         })
-         .catch((err) => {
-            setError(err)
-            console.log(err);
-         })
-         .finally(() =>{
-             setTimeout(() => {
-                setIsLoading(false)
-             }, 1000);
-         });
+    const buildsearchQuery = () => {
+        if(searchKeyWord) {
+            const params = {
+                _where: {
+                    _or: [
+                        { lastname_contains: searchKeyWord },
+                        { firstname_contains: searchKeyWord },
+                        { description_contains: searchKeyWord },
+                        { address_contains: searchKeyWord },
+                        { roles_contains: searchKeyWord },
+                        { 'agency.name_contains': searchKeyWord },
+                        { 'topics.name_contains' : searchKeyWord }
+                    ]
+                }
+            };
+            
+            return qs.stringify(params, {encode: false });
+        }
+        return ''
     }
 
     const getJournalists = () => {
         setIsLoading(true)
-        axios.get('http://localhost:1337/journalists')
+        const url = 'http://localhost:1337/journalists'
+        const apiUrl = (buildsearchQuery()) ? url+'?'+buildsearchQuery() : url
+        axios.get(apiUrl)
          .then((response) => {
             setJournalists(response.data)
          })
@@ -68,7 +60,7 @@ const JournalistView = () => {
 
     useEffect(() => {
         getJournalists()
-    }, [])
+    }, [searchKeyWord])
 
 
     return (
