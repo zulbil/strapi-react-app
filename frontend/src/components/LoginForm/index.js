@@ -1,27 +1,30 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../contexts/AuthContext'
 import './style.scss'
 
 const LoginForm = () => {
 
-    const emailRef                 =   useRef()
-    const passwordRef              =   useRef()
+    const emailRef                 =    useRef()
+    const passwordRef              =    useRef()
+    const { login }                =    useAuth()
 
-    function handleLoginAction() {
-        alert('Login...')
+    function handleLoginAction(e) {
+        e.preventDefault()
+        login(emailRef.current.value, passwordRef.current.value)
     }
 
     return (
-        <form className="shadow needs-validation" noValidate onSubmit={handleLoginAction}>
+        <form className="shadow needs-validation" onSubmit={handleLoginAction}>
             <div className="mb-3">
-                <label for="exampleInputEmail1" className="form-label">Email address</label>
+                <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                 <input type="email" className="form-control" id="exampleInputEmail1" ref={emailRef} aria-describedby="emailHelp" required/>
                 <div className="invalid-feedback">
                     Please provide a valid email.
                 </div>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" className="form-label">Password</label>
+            <div className="mb-3">
+                <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                 <input type="password" className="form-control" id="exampleInputPassword1" ref={passwordRef} required />
                 <div className="invalid-feedback">
                     Please provide a valid password.
