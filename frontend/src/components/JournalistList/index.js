@@ -5,7 +5,7 @@ import './style.scss'
 const JournalistList = ({ list }) => {
     return (
         <>
-            <div className="alert alert-info-search" role="alert">
+            <div className="alert alert-dark" role="alert">
                 {list.length > 0 && <p className="m-0">{list.length+' éléments trouvés'}</p>}
                 {list.length <= 0 && <p className="m-0">Aucun élément trouvé pour cette recherche...</p>}
             </div>

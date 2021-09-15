@@ -68,4 +68,9 @@ $blue-base-color: #aeceee;
     .btn i {
         display: inline-block;
     }
+
+    .container-btn-actions {
+        display: flex;
+        justify-content: space-between;
+    }
 }

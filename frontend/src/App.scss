@@ -21,44 +21,7 @@ $blue-base-color: #aeceee;
 
 body {
   font-family: 'Lato', sans-serif;
-  font-size: 17px;
+  font-size: 16px;
 }
 
-.btn-base {
-  background: #0f0c29;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border: 1px solid $purple-color;
-  color: white;
-  padding: 15px 30px;
-  font-weight: 700;
-  border-radius: 30px;
-  transition: padding ease 0.3s;
-
-  &:hover,
-  &:focus {
-    color: white;
-    padding: 15px 40px;
-
-  }
-}
-
-.btn-base-ghost {
-  background: white;
-  border: 1px solid $purple-color;
-  color: $purple-color;
-  padding: 15px 30px;
-  font-weight: 700;
-  border-radius: 30px;
-  transition: all ease 0.3s;
-
-  &:hover,
-  &:focus {
-    color: white;
-    padding: 15px 40px;
-    background: #0f0c29;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  }
-}
 

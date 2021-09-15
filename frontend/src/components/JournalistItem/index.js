@@ -28,8 +28,27 @@ const JournalistItem = ({ item }) => {
                     </div>
                 </div>
                 <div className="footer-journalist-card">
-                    <button className="btn btn-base"> <i class="bi bi-plus-circle"></i> Enregistrer <i class="bi bi-lock-fill"></i> </button>
-                    <button className="btn btn-base-ghost ml-4"> <i class="bi bi-journal-plus mr-2"></i> Contact </button>
+                    <div className="container-btn-actions">
+                        <div className="btns-action-right">
+                            <button type="button" className="btn btn-outline-dark btn-contact">
+                                <i className="bi bi-person-lines-fill me-2"></i> 
+                                Contact 
+                                <i className="bi bi-chevron-down ms-2"></i> 
+                            </button>
+                        </div>
+                        <div className="btns-action-left">
+                            <button type="button" className="btn btn-outline-dark btn-twitter">
+                                <i className="bi bi-twitter me-2"></i> 
+                                Tweet 
+                                <i className="bi bi-lock-fill ms-2"></i>
+                            </button>
+                            <button type="button" className="btn btn-warning ms-3"> 
+                                <i className="bi bi-plus-circle-fill me-2"></i> 
+                                Save 
+                                <i className="bi bi-lock-fill ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
