@@ -6,27 +6,18 @@ import Navbar from './components/Navbar';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import HomePage from './pages/HomePage';
+import AuthenticationLayout from './layout/AuthenticationLayout';
+import WithNavbarLayout from './layout/WithNavbarLayout';
 
 function App() {
   return (
     <>
-      <Navbar />
       <Switch>
-          <Route path='/login'>
-            <LoginPage />
-          </Route>
-          <Route path='/'>
-            <HomePage />
-          </Route>
-          <Route path='/register'>
-            <RegisterPage />
-          </Route>
-          <Route path='/journalists'>
-            <JournalistsPage />
-          </Route>
-          <Route path='/agencies'>
-            <AgenciesPage />
-          </Route>
+          <AuthenticationLayout exact path="/register" component={RegisterPage} />
+          <AuthenticationLayout exact path="/login" component={LoginPage} />
+          <WithNavbarLayout exact path="/" component={HomePage} />
+          <WithNavbarLayout exact path="/journalists" component={JournalistsPage} />
+          <WithNavbarLayout exact path="/outlets" component={AgenciesPage} />
       </Switch>
     </>
   );
