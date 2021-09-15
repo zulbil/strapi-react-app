@@ -12,25 +12,24 @@ const JournalistView = () => {
     const [isLoading, setIsLoading]                 =       useState(false)
     const [journalists, setJournalists]             =       useState([])
     const [error, setError]                         =       useState(null)
-    const [searchKeyWord, setSearchKeyWord]         =       useState('')
 
     const performSearch = (search) => {
         setIsLoading(true)
-        setSearchKeyWord(search);
+        getJournalists(search)
     }
 
-    const buildsearchQuery = () => {
-        if(searchKeyWord) {
+    const buildsearchQuery = (search) => {
+        if(search) {
             const params = {
                 _where: {
                     _or: [
-                        { lastname_contains: searchKeyWord },
-                        { firstname_contains: searchKeyWord },
-                        { description_contains: searchKeyWord },
-                        { address_contains: searchKeyWord },
-                        { roles_contains: searchKeyWord },
-                        { 'agency.name_contains': searchKeyWord },
-                        { 'topics.name_contains' : searchKeyWord }
+                        { lastname_contains: search },
+                        { firstname_contains: search },
+                        { description_contains: search },
+                        { address_contains: search },
+                        { roles_contains: search },
+                        { 'agency.name_contains': search },
+                        { 'topics.name_contains' : search }
                     ]
                 }
             };
@@ -40,27 +39,27 @@ const JournalistView = () => {
         return ''
     }
 
-    const getJournalists = () => {
+    const getJournalists = ( search = '') => {
         setIsLoading(true)
         const url = 'http://localhost:1337/journalists'
-        const apiUrl = (buildsearchQuery()) ? url+'?'+buildsearchQuery() : url
+        const apiUrl = (buildsearchQuery(search)) ? url+'?'+buildsearchQuery(search) : url
         axios.get(apiUrl)
-         .then((response) => {
-            setJournalists(response.data)
-         })
-         .catch((err) => {
-            setError(err)
-         })
-         .finally(() => {
-             setTimeout(() => {
-                setIsLoading(false)
-             }, 1000);
-         });
+            .then((response) => {
+                setJournalists(response.data)
+            })
+            .catch((err) => {
+                setError(err)
+            })
+            .finally(() => {
+                setTimeout(() => {
+                    setIsLoading(false)
+                }, 1000);
+            });
     }
 
     useEffect(() => {
         getJournalists()
-    }, [searchKeyWord])
+    }, [])
 
 
     return (
