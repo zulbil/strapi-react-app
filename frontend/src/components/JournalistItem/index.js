@@ -5,7 +5,7 @@ import './style.scss'
 const JournalistItem = ({ item }) => {
     return (
         <div className="col mt-4">
-            <div className="card shadow-sm journalist-card">
+            <div className="card shadow journalist-card">
                 <div className="card-head">
                     <Avatar path={item.avatar.length > 0 ? item.avatar[0].url: ''} firstname={item.firstname }/>
                     <div className="journalist-identity">
