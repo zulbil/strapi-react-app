@@ -12,7 +12,7 @@ const RegisterForm = () => {
 
     function handleSignupAction(e) {
         e.preventDefault()
-
+        setError('')
         if(passwordRef.current.value !== passwordConfirmRef.current.value) {
             setError('Password did not match')
         }
