@@ -4,6 +4,7 @@ import { useAuth } from '../../contexts/AuthContext'
 
 const RegisterForm = () => {
 
+    const userNameRef                   =    useRef()
     const emailRef                  	=    useRef()
     const passwordRef                   =    useRef()
     const passwordConfirmRef            =    useRef()
@@ -15,9 +16,10 @@ const RegisterForm = () => {
         setError('')
         if(passwordRef.current.value !== passwordConfirmRef.current.value) {
             setError('Password did not match')
+            return false
         }
 
-        signup(emailRef.current.value, passwordRef.current.value)
+        signup(userNameRef.current.value, emailRef.current.value, passwordRef.current.value)
     }
 
     return (
@@ -26,6 +28,10 @@ const RegisterForm = () => {
                 {error && <div className="alert alert-danger" role="alert">
                     {error}
                 </div>}
+                <div className="mb-3">
+                    <label htmlFor="exampleUsernameInput" className="form-label">Username</label>
+                    <input type="text" className="form-control" ref={userNameRef} id="exampleUsernameInput" aria-describedby="usernameHelp" />
+                </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                     <input type="email" className="form-control" ref={emailRef} id="exampleInputEmail1" aria-describedby="emailHelp" />
