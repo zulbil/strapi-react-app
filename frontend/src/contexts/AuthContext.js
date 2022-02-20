@@ -20,10 +20,16 @@ export function AuthContextProvider({ children }) {
             })
             .then(response => {
                 setCurrentUser(response.data.user)
+                return {
+                    success: true,
+                    response: response
+                }
             })
             .catch(error => {
-                console.log('An error occurred:', error.response);
-                throw error
+                return {
+                    success: false,
+                    response: error
+                }
             });
     }
 
