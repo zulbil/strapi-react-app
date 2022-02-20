@@ -1,5 +1,5 @@
 import React, { useRef, useState} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 
 const RegisterForm = () => {
@@ -10,16 +10,21 @@ const RegisterForm = () => {
     const passwordConfirmRef            =    useRef()
     const { signup }                    =    useAuth()
     const [ error, setError ]           =    useState()
+    const history                       =    useHistory()
 
     function handleSignupAction(e) {
-        e.preventDefault()
-        setError('')
-        if(passwordRef.current.value !== passwordConfirmRef.current.value) {
-            setError('Password did not match')
-            return false
+        try {
+            e.preventDefault()
+            setError('')
+            if(passwordRef.current.value !== passwordConfirmRef.current.value) {
+                setError('Password did not match')
+                return false
+            }
+            signup(userNameRef.current.value, emailRef.current.value, passwordRef.current.value)
+            history.push('/journalists')
+        } catch (error) {
+            setError('Registration failed')
         }
-
-        signup(userNameRef.current.value, emailRef.current.value, passwordRef.current.value)
     }
 
     return (
