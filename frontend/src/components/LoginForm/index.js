@@ -17,7 +17,7 @@ const LoginForm = () => {
             setError('')
             login(emailRef.current.value, passwordRef.current.value)
             history.push('/journalists')
-        } catch (error) {
+        } catch {
             setError('Your email or password are incorrect. Try again')
         }
         
