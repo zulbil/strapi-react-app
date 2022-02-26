@@ -13,21 +13,23 @@ export function AuthContextProvider({ children }) {
 
     function signup(username,email,password) {
         axios
-            .post('http://localhost:1337/api/auth/local/register', {
+            .post('http://localhost:1337/auth/local/register', {
                 username,
                 email,
                 password,
             })
             .then(response => {
-                // Handle success.
-                console.log('Well done!');
-                console.log(response);
-                console.log('User profile', response.data.user);
-                console.log('User token', response.data.jwt);
+                setCurrentUser(response.data.user)
+                return {
+                    success: true,
+                    response: response
+                }
             })
             .catch(error => {
-                // Handle error.
-                console.log('An error occurred:', error.response);
+                return {
+                    success: false,
+                    response: error
+                }
             });
     }
 
@@ -38,14 +40,11 @@ export function AuthContextProvider({ children }) {
                 password: password,
             })
             .then(response => {
-                // Handle success.
-                console.log('Well done!');
-                console.log('User profile', response.data.user);
-                console.log('User token', response.data.jwt);
+                setCurrentUser(response.data.user)
             })
             .catch(error => {
-                // Handle error.
                 console.log('An error occurred:', error.response);
+                throw error
             });
     }
 
