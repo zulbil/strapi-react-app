@@ -39,22 +39,19 @@ const JournalistView = () => {
         return ''
     }
 
-    const getJournalists = ( search = '') => {
+    const getJournalists = async ( search = '') => {
         setIsLoading(true)
         const url = 'http://localhost:1337/journalists'
         const apiUrl = (buildsearchQuery(search)) ? url+'?'+buildsearchQuery(search) : url
-        axios.get(apiUrl)
-            .then((response) => {
-                setJournalists(response.data)
-            })
-            .catch((err) => {
-                setError(err)
-            })
-            .finally(() => {
-                setTimeout(() => {
-                    setIsLoading(false)
-                }, 1000);
-            });
+        try {
+            const response = await axios.get(apiUrl);
+            setJournalists(response.data);
+        } catch (error) {
+            setError(error);
+        }
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 1000);
     }
 
     useEffect(() => {
@@ -74,7 +71,7 @@ const JournalistView = () => {
                     {
                         error &&
                         <div className="alert alert-danger">
-                            {error.response.data.message ? error.response.data.message : 'Une erreur inattendue s\'est produite'}
+                            { (error && error.response && error.response.data.message) ? error.response.data.message : 'Unexpected error occurs'}
                         </div>
                     }
 
